@@ -1,20 +1,20 @@
 ---
 # Display name
-title: Nelson Bighetti
+title: Srujan Kotikela
 
 # Full Name (for SEO)
-first_name: Nelson
-last_name: Bighetti
+first_name: Srujan
+last_name: Kotikela
 
 # Is this the primary user of the site?
 superuser: true
 
 # Role/position
-role: Professor of Artificial Intelligence
+role: Clinical Assistant Professor
 
 # Organizations/Affiliations
 organizations:
-  - name: Stanford University
+  - name: Texas A&M University
     url: ''
 
 # Short bio (displayed in user profile at end of posts)
