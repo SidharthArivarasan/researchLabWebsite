@@ -3,7 +3,7 @@
 # Hugo Documentation: https://gohugo.io/getting-started/configuration/#all-configuration-settings
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
-title: Wowchemy Research Group # Website name
+title: DRSK Research Group # Website name
 baseURL: 'https://example.com/' # Website URL
 
 ############################
@@ -37,9 +37,9 @@ outputs:
   home: [HTML, RSS, JSON, WebAppManifest, headers, redirects]
   section: [HTML, RSS]
 imaging:
-  resampleFilter: lanczos
+  resampleFilter: Lanczos
   quality: 75
-  anchor: smart
+  anchor: Smart
 timeout: 600000
 taxonomies:
   tag: tags
