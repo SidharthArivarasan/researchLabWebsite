@@ -110,9 +110,7 @@ extensions:
     publish_mode: editorial_workflow
     local_backend: false
     identity:
-      roles:
-        - admin
-        - editor
+      roles: ["admin", "editor"]
     collections:
       post:
         label: "News Articles"
