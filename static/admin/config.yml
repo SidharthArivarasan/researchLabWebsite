@@ -1,8 +1,13 @@
 backend:
   name: git-gateway
-  branch: main  # Change this if you're using a different branch
+  branch: main
+  site_domain: drskrlw.netlify.app
+  identity:
+    roles:
+      - Admin
+      - Editor
 
-media_folder: "static/uploads" # Where images are stored
+media_folder: "static/uploads"
 public_folder: "/uploads"
 
 collections:
@@ -19,3 +24,6 @@ collections:
       - { label: "Summary", name: "summary", widget: "string" }
       - { label: "Tags", name: "tags", widget: "list", default: ["Research"] }
       - { label: "Body", name: "body", widget: "markdown" }
+    publish_mode: editorial_workflow
+    editor:
+      roles: ["admin"] # Only admins can publish
