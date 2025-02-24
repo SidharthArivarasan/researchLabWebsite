@@ -7,9 +7,9 @@ backend:
       - admin
       - editor
 
-publish_mode: editorial_workflow
+publish_mode: editorial_workflow  # Ensures articles require admin approval
 
-media_folder: "static/uploads"
+media_folder: "static/uploads" # Where images are stored
 public_folder: "/uploads"
 
 collections:
@@ -26,7 +26,3 @@ collections:
       - { label: "Summary", name: "summary", widget: "string" }
       - { label: "Tags", name: "tags", widget: "list", default: ["Research"] }
       - { label: "Body", name: "body", widget: "markdown" }
-    editor:
-      roles: ["admin"] # Only admins can publish
-
-
