@@ -109,26 +109,6 @@ extensions:
     branch: main
     publish_mode: editorial_workflow
     local_backend: false
-    identity:
-      roles: ["admin", "editor"]
-    collections:
-      post:
-        label: "News Articles"
-        folder: "content/post"
-        create: true
-        slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-        fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Date", name: "date", widget: "datetime" }
-          - { label: "Authors", name: "authors", widget: "list", default: ["admin"] }
-          - { label: "Image", name: "image", widget: "image" }
-          - { label: "Summary", name: "summary", widget: "string" }
-          - { label: "Tags", name: "tags", widget: "list", default: ["Research"] }
-          - { label: "Body", name: "body", widget: "markdown" }
-        permissions:
-          create: ["admin", "editor"]  # ✅ Allows both to create
-          edit: ["admin", "editor"]  # ✅ Allows both to edit
-          publish: ["admin"]  # ❌ Only Admins can publish
 
   academicons:
     enable: true
