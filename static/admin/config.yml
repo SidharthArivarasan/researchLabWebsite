@@ -24,6 +24,7 @@ collections:
       - { label: "Summary", name: "summary", widget: "string" }
       - { label: "Tags", name: "tags", widget: "list", default: ["Research"] }
       - { label: "Body", name: "body", widget: "markdown" }
-    publish_mode: editorial_workflow
-    editor:
-      roles: ["admin"] # Only admins can publish
+
+publish_mode: editorial_workflow
+editor:
+  roles: ["admin"] # Only admins can publish
