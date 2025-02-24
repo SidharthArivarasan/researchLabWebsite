@@ -4,8 +4,8 @@ backend:
   site_domain: drskrlw.netlify.app
   identity:
     roles:
-      - Admin
-      - Editor
+      - admin
+      - editor
 
 media_folder: "static/uploads"
 public_folder: "/uploads"
