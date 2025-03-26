@@ -1,0 +1,25 @@
+<div id="strapi-news-feed" class="news-grid"></div>
+
+<script>
+  fetch("http://localhost:1338/api/newss")
+    .then(res => res.json())
+    .then(data => {
+      const container = document.getElementById("strapi-news-feed");
+
+      data.data.forEach(item => {
+        const article = item;
+        container.innerHTML += `
+          <div class="news-item">
+            <h3>${article.title}</h3>
+            <p>${article.summary}</p>
+            <a href="#">Read more</a>
+            <hr />
+          </div>
+        `;
+      });
+    })
+    .catch(err => {
+      document.getElementById("strapi-news-feed").innerHTML = "<p>Failed to load news from CMS.</p>";
+      console.error(err);
+    });
+</script>
