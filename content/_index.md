@@ -44,7 +44,7 @@ sections:
         <div id="strapi-news-feed" class="news-grid"></div>
 
         <script>
-          fetch("http://localhost:1338/api/newss")
+          fetch("https://rlw-strapi.onrender.com/api/newss")
             .then(res => res.json())
             .then(json => {
               const data = json.data || [];
