@@ -1,7 +1,7 @@
 <div id="strapi-news-feed" class="news-grid"></div>
 
 <script>
-  fetch("https://rlw-strapi.onrender.com/api/newss")
+  fetch("https://rlw-strapi.onrender.com/api/newss?populate=*")
     .then(res => {
       if (!res.ok) throw new Error("Failed to fetch Strapi news");
       return res.json();
