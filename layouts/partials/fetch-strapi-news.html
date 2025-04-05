@@ -4,10 +4,13 @@
   fetch("https://rlw-strapi.onrender.com/api/newss")
     .then(res => res.json())
     .then(data => {
+      console.log("Fetched news:", data); // ✅ Debug log here
+
       const container = document.getElementById("strapi-news-feed");
 
       data.data.forEach(item => {
-        const article = item;
+        const article = item.attributes;
+
         container.innerHTML += `
           <div class="news-item">
             <h3>${article.title}</h3>
