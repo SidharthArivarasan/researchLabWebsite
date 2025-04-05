@@ -41,7 +41,7 @@ sections:
       title: "Live News Feed from Strapi"
       subtitle: ""
       text: |
-        {{< partial "fetch-strapi-news.html" >}}
+        <div id="strapi-news-feed" class="news-grid"></div>
     design:
       columns: '1'
 

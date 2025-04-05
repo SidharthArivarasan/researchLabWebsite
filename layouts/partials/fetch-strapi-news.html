@@ -2,27 +2,40 @@
 
 <script>
   fetch("https://rlw-strapi.onrender.com/api/newss")
-    .then(res => res.json())
-    .then(data => {
-      console.log("Fetched news:", data); // ✅ Debug log here
+    .then(res => {
+      if (!res.ok) throw new Error("Failed to fetch Strapi news");
+      return res.json();
+    })
+    .then(json => {
+      console.log("Fetched news:", json);
 
       const container = document.getElementById("strapi-news-feed");
+      if (!container) return;
 
-      data.data.forEach(item => {
+      const data = json.data || [];
+      if (data.length === 0) {
+        container.innerHTML = "<p>No news available.</p>";
+        return;
+      }
+
+      data.forEach(item => {
         const article = item.attributes;
-
-        container.innerHTML += `
-          <div class="news-item">
-            <h3>${article.title}</h3>
-            <p>${article.summary}</p>
-            <a href="#">Read more</a>
-            <hr />
-          </div>
+        const div = document.createElement("div");
+        div.classList.add("news-item");
+        div.innerHTML = `
+          <h3>${article.title}</h3>
+          <p>${article.summary}</p>
+          <a href="#">Read more</a>
+          <hr />
         `;
+        container.appendChild(div);
       });
     })
     .catch(err => {
-      document.getElementById("strapi-news-feed").innerHTML = "<p>Failed to load news from CMS.</p>";
-      console.error(err);
+      console.error("Strapi fetch error:", err);
+      const fallback = document.getElementById("strapi-news-feed");
+      if (fallback) {
+        fallback.innerHTML = "<p>Failed to load news from CMS.</p>";
+      }
     });
 </script>

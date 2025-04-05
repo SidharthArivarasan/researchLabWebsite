@@ -1,1 +1,4 @@
-{{ partial "fetch-strapi-news.html" . }}
+{{ define "main" }}
+  {{ block "main" . }}{{ end }}
+  {{ partial "fetch-strapi-news.html" . }} <!-- ✅ Inject script -->
+{{ end }}
