@@ -41,41 +41,7 @@ sections:
       title: "Live News Feed from Strapi"
       subtitle: ""
       text: |
-        <div id="strapi-news-feed" class="news-grid"></div>
-
-        <script>
-          fetch("https://rlw-strapi.onrender.com/api/newss")
-            .then(res => res.json())
-            .then(json => {
-              console.log("Fetched news data:", json);
-
-              const data = json.data || [];
-              const container = document.getElementById("strapi-news-feed");
-
-              if (!container) return;
-
-              if (data.length === 0) {
-                container.innerHTML = "<p>No news available.</p>";
-                return;
-              }
-
-              data.forEach((item) => {
-                const article = item.attributes;
-                container.innerHTML += `
-                  <div class='news-item'>
-                    <h3>${article.title}</h3>
-                    <p>${article.summary}</p>
-                    <a href="#">Read more</a>
-                    <hr />
-                  </div>
-                `;
-              });
-            })
-            .catch(err => {
-              document.getElementById("strapi-news-feed").innerHTML = "<p>Failed to load news.</p>";
-              console.error("Strapi fetch error:", err);
-            });
-        </script>
+        {{< partial "fetch-strapi-news.html" >}}
     design:
       columns: '1'
 
