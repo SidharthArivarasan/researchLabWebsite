@@ -58,10 +58,11 @@ sections:
               }
 
               data.forEach((item) => {
+                const article = item.attributes;
                 container.innerHTML += `
                   <div class='news-item'>
-                    <h3>${item.title}</h3>
-                    <p>${item.summary}</p>
+                    <h3>${article.title}</h3>
+                    <p>${article.summary}</p>
                     <a href="#">Read more</a>
                     <hr />
                   </div>
