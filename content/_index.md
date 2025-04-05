@@ -47,6 +47,8 @@ sections:
           fetch("https://rlw-strapi.onrender.com/api/newss")
             .then(res => res.json())
             .then(json => {
+              console.log("Fetched news data:", json);
+
               const data = json.data || [];
               const container = document.getElementById("strapi-news-feed");
 
