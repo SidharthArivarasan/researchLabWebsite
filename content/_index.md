@@ -36,7 +36,7 @@ sections:
       view: card
       columns: '1'
   
-- block: markdown
+  - block: markdown
     content:
       title: "Live News Feed from Strapi"
       subtitle: ""
