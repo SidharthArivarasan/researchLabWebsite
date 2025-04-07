@@ -36,12 +36,43 @@ sections:
       view: card
       columns: '1'
   
-  - block: markdown
+- block: markdown
     content:
       title: "Live News Feed from Strapi"
       subtitle: ""
       text: |
         <div id="strapi-news-feed" class="news-grid"></div>
+
+        <script>
+          fetch("http://localhost:1338/api/newss")
+            .then(res => res.json())
+            .then(json => {
+              const data = json.data || [];
+              const container = document.getElementById("strapi-news-feed");
+
+              if (!container) return;
+
+              if (data.length === 0) {
+                container.innerHTML = "<p>No news available.</p>";
+                return;
+              }
+
+              data.forEach((item) => {
+                container.innerHTML += `
+                  <div class='news-item'>
+                    <h3>${item.title}</h3>
+                    <p>${item.summary}</p>
+                    <a href="#">Read more</a>
+                    <hr />
+                  </div>
+                `;
+              });
+            })
+            .catch(err => {
+              document.getElementById("strapi-news-feed").innerHTML = "<p>Failed to load news.</p>";
+              console.error("Strapi fetch error:", err);
+            });
+        </script>
     design:
       columns: '1'
 
